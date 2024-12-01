@@ -35,6 +35,8 @@ jobs:
     - name: Upload SARIF Result
       id: upload-sarif
       uses: github/codeql-action/upload-sarif@v3
+      env: 
+        CODEQL_ACTION_EXTRA_OPTIONS: '{"database":{"interpret-results":["--max-paths", 1]}}'
       with:
         sarif_file: sarif.output.json
 
