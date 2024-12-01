@@ -1,6 +1,14 @@
 # PHP (outdated version) # apache out of date
 FROM php:7.4  
 
-# Add a simple PHP file
-COPY index.php /var/www/html/
-
+# Run as root (bad practice)
+USER root
+# Install insecure dependencies
+RUN pip install flask==0.12  # Outdated, contains known vulnerabilities
+# Expose unnecessary ports
+EXPOSE 5000 6000
+# Hardcode credentials (bad practice)
+ENV SECRET_KEY="supersecret"
+# Copy and run the app
+COPY app.py /app.py
+CMD ["python", "app.py"]
