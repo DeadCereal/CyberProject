@@ -24,12 +24,19 @@ jobs:
 
     - name: Build Docker Image
       run: docker build -t vulnerable-python ./vulnerable-python
-    
+
     - name: Scan with Docker Scout
       uses: docker/scout-action@v1
       with:
-        command: cves
-        exit-code: 2
+        command: cves,recommendations
+        sarif-file: sarif.output.json
+        summary: true
+
+    - name: Upload SARIF Result
+      id: upload-sarif
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: sarif.output.json
 
     - name: Scan with Trivy
       uses: aquasecurity/trivy-action@0.29.0 
