@@ -1,5 +1,5 @@
 # Use an outdated base image
-FROM python:3.6  
+FROM python:3.8  
 #Vulnerable to CVE-xxxx
 
 # Run as root (bad practice)
