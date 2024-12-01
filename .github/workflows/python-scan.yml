@@ -29,8 +29,6 @@ jobs:
       uses: docker/scout-action@v1
       with:
         command: cves,recommendations
-        only-severities: critical,high
-        only-fixed: true
         sarif-file: sarif.output.json
         summary: true
 
