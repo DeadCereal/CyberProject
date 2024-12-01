@@ -1,9 +1,9 @@
-name: Docker Scan Workflow
+name: Python Scan Workflow
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build-and-scan:
