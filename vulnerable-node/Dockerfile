@@ -8,7 +8,7 @@ COPY app.js ./
 
 # Install a vulnerable package
 RUN npm install express@4.16.0  # Known vulnerabilities in this version
-
+  
 EXPOSE 3000
 # Add app file
 CMD ["node", "app.js"]

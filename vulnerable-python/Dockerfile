@@ -1,6 +1,6 @@
 # PHP (outdated version) # apache out of date
 FROM python:3.6  
-
+ 
 # Run as root (bad practice)
 USER root
 # Install insecure dependencies
